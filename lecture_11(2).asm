@@ -7,7 +7,8 @@
 # 	int x = sum(a,b); 
 #	int y = multiply(c,d);
 #	int v0 = multiply(x,y)
-#	return v0;}
+#	return v0;
+# }
 
 # assume a = 10, b = 20, c = 5, d = 4
 # a0 = a, a1 = 20, a2 = 5, a3 = 4

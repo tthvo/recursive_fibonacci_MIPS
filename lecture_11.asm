@@ -27,7 +27,7 @@ circleArea:
 	add $v0, $s0, $s0 # Copy the value to v0
 	# Pop and restore s0
 	lw $s0, ($sp)
-	addi $sp, $sp, -4 # Increment the pointer
+	addi $sp, $sp, 4 # Increment the pointer
 	
 	jr $ra
 exit:	

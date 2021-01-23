@@ -40,7 +40,9 @@ else:
 	add $s0, $0, $v0  #s0 = fib(n-1)
 	
 	# This is why $a0 need to saved in order to call another recursive call
-	addi $a0, $a0, -1 # n-1 -1 = n-2
+	# Here a0 is already restored by a previous call
+	lw $a0 4($sp) # push $a0
+	addi $a0, $a0, -2 # n-1 -1 = n-2
 	jal fib
 	add $v0, $s0, $v0 # v0 = s0 + (new)v0 = fib(n-1) + fin(n-2)
 	
@@ -49,7 +51,6 @@ next:
 # Epi
 	
 	lw $ra ($sp) # push $ra
-	lw $a0 4($sp) # push $a0
 	lw $s0 8($sp)
 	addi $sp $sp 12 # Increment by 12
 	
@@ -57,3 +58,5 @@ next:
 
 exit: 
 	# Exit the program
+	addi $v0 $0 10
+	syscall
